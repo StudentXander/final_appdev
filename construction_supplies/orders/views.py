@@ -11,6 +11,14 @@ class HomePageListView(ListView):
     template_name = "index.html"
     model = Product
     context_object_name = 'products '
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        products = Product.objects.all()
+        product_images = []
+        for product in products:
+            product_images.append(product.image.url)
+        context['product_images'] = product_images
+        return context
 
 class ProductListView(TemplateView):
     template_name = 'product_list.html'

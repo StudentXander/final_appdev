@@ -22,7 +22,7 @@ class Category(BaseModel):
         return self.name
 
 class Product(BaseModel):
-    name = models.CharField(max_length=150)
+    name = models.CharField(max_length=200)
     description = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, null=True, blank=True)
@@ -44,3 +44,8 @@ class OrderProduct(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField()
 
+class Product(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    supplier = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='product_images/')

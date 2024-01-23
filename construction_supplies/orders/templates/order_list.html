@@ -1,0 +1,17 @@
+{% for order in orders %}
+<tr>
+    <th>
+        {{ order.name}}
+        
+    </th>
+    <th>
+        {{order.description}}
+    </th>
+    <th>
+        {{order.customer}}
+    </th>
+    <th>
+        <img src="{{ order.image.url }}" alt="{{ order.name }}" width="100" height="100">
+    </th>
+</tr>
+{% endfor%}
