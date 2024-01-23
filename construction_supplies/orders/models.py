@@ -44,7 +44,7 @@ class OrderProduct(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField()
 
-class Product(models.Model):
+class ProductImage(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     supplier = models.CharField(max_length=200)
