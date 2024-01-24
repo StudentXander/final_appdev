@@ -1,16 +1,45 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello WOrld</h1>
-    {% for product in products %}
-    <div>
-        <h2>{{ product.name }}</h2>
-        <img src="{{ product.image.url }}" alt="{{ product.name }}" width="100" height="100">
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container" style="width:80%; margin:auto;">
+        <a class='btn btn-primary' style='margin-bottom:20px;'href="{% url 'create-list' %}"> Add Product</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        Description
+                    </td>
+                    <td>
+                        Supplier
+                    </td>
+                    <td>
+                        Image
+                    </td>
+                </tr>
+            </thead>
+            <tbhody>
+                {% for product in products %}
+                <tr>
+                    <td>
+                        {{ product.name }}
+                    </td>
+                    <td>
+                        {{ product.description }}
+                    </td>
+                    <td>
+                        {{ product.supplier }}
+                    </td>
+                    {% if product.image %}
+                    <td>
+                        <img src="{{ product.image.url }}" alt="Profile Image" class='rounded-circle'>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-    {% endfor %}
-</body>
-</html>
+    {% include 'includes/pagination.html' %}
+{% endblock %}

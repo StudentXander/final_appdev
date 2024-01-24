@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% block body %}
+{% include 'includes/header.html' %}
+
+<div class="content-center">
+    <div class="container container-fluid mx-auto">
+        <div style='background-color: black; color: white; padding: 20px; opacity: 80%'>
+        <h2>Edit Product</h2>
+        <form method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <button type="submit" style='margin-right:20px;' class="btn btn-danger">Add Product</button>
+            <a href="{% url 'product_list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+        </div>
+    </div>
+</div>
+{% include 'includes/pagination.html' %}
+{% endblock %}
