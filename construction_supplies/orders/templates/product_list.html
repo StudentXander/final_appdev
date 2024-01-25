@@ -7,27 +7,27 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th> Product Name</th>
-                <th> Description</th>
-                <th> Supplier </th>
-                <th> Image </th>
-                <th colspan=""> Action </th>
+                <th class="font-weight-bold"> Product Name</th>
+                <th class="font-weight-bold"> Description</th>
+                <th class="font-weight-bold"> Supplier </th>
+                <th class="font-weight-bold"> Image </th>
+                <th class="font-weight-bold" colspan=""> Action </th>
             </tr>
         </thead>
         <tbody>
             {% for product in products %}
             <tr>
-                <th>
+                <th class="font-weight-normal">
                     {{ product.name}}
                     
                 </th>
-                <th>
+                <th class="font-weight-normal">
                     {{product.description}}
                 </th>
-                <th>
+                <th class="font-weight-normal">
                     {{product.supplier}}
                 </th>
-                <th>
+                <th class="font-weight-normal">
                     {% if product.image %}
                     <img src="{{ product.image.url }}" alt="{{ product.name }}" width="100" height="100">
                     {% endif %}
