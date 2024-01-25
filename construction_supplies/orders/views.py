@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView 
 from django.core.paginator import Paginator
-from .models import Product, Order
+from .models import Product, Order, Category, Supplier
 from .forms import ProductForm
 from django.urls import reverse_lazy
 
@@ -32,6 +32,12 @@ class ProductCreateView(CreateView):
     success_message = ("Successfully created product.")
     failure_message = ("Failed to create product.")
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all().order_by('name')
+        context['suppliers'] = Supplier.objects.all().order_by('name')
+        return context
+    
     def form_valid(self, form):
         messages.success(self.request, self.success_message)
         return super().form_valid(form)

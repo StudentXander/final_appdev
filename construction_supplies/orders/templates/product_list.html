@@ -9,6 +9,7 @@
             <tr>
                 <th class="font-weight-bold"> Product Name</th>
                 <th class="font-weight-bold"> Description</th>
+                <th class="font-weight-bold"> Category</th>
                 <th class="font-weight-bold"> Supplier </th>
                 <th class="font-weight-bold"> Image </th>
                 <th class="font-weight-bold" colspan=""> Action </th>
@@ -19,10 +20,12 @@
             <tr>
                 <th class="font-weight-normal">
                     {{ product.name}}
-                    
                 </th>
                 <th class="font-weight-normal">
                     {{product.description}}
+                </th>
+                <th class="font-weight-normal">
+                    {{product.category}}
                 </th>
                 <th class="font-weight-normal">
                     {{product.supplier}}

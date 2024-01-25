@@ -4,4 +4,7 @@ from .models import Product
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ['name', 'description', 'category', 'supplier', 'image']
+        widgets = {
+            'supplier': forms.Select,
+        }
