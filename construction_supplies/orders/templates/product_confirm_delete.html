@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<div class="content-center">
+<!--<div class="content-center">
     <div class="container container-fluid mx-auto">
         <h2 style='font-weight:bolder;color:black;'>Delete Collection</h2>
         <form method="post" style="display:inline;">
@@ -11,6 +11,27 @@
             <input class="col-md-4 btn btn-danger" type="submit" value="Confirm">
 
         </form>
+    </div>
+</div>-->
+<div class="container content-center" style="height: 80vh; display: flex; align-items: center; justify-content: center;">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 style='font-weight: bolder; color: black;'>Delete Collection</h2>
+            <form method="post" style="display: inline;">
+                {% csrf_token %}
+                <label for="delete_confirmation" style='font-weight: bolder; font-size: 20px; color: black;'>
+                    Are you sure you want to delete "{{ object }}" Collection? 
+                </label><br><!--
+                <input type="checkbox" id="delete_confirmation" name="delete_confirmation" required><br>
+                <input class="btn btn-danger" type="submit" value="Confirm">-->
+                <div class="form-check">
+                    <input type="checkbox" id="delete_confirmation" name="delete_confirmation" class="form-check-input" style="border-color: black;" required>
+                    <label class="form-check-label" for="delete_confirmation" style="font-family: Georgia, 'Times New Roman', Times, serif;"><em>I Confirm</em></label>
+                </div>
+                <br>
+                <input class="btn btn-danger" type="submit" value="submit">
+            </form>
+        </div>
     </div>
 </div>
 {% include 'includes/pagination.html' %}
