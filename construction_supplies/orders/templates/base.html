@@ -24,8 +24,20 @@
         
     </style>
 </head>
-<body>
+<body><!--
+    {% extends 'base.html' %}
 
+    {% block body %}
+    <div class="container content-center" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+        <div class="col-md-8">
+            <h2 style='font-weight: bolder; color: black;'>Welcome to Construction Supplies</h2>
+            <p style='font-size: 18px; color: black;'>Explore our range of construction supplies and find everything you need for your projects.</p>
+
+        </div>
+    </div>
+    
+    {% endblock %}-->
+    
 {% block body%}{% endblock %}
 {% block footer%} {% endblock %}
     
